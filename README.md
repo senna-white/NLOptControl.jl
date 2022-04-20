@@ -34,7 +34,7 @@ Then open up julia and install NLOptControl
 ```julia
 import Pkg # refer_to https://github.com/jump-dev/Ipopt.jl added in 20220420
 Pkg.add("https://github.com/JuliaMPC/NLOptControl.jl")
-Pkg.pin("KNITRO",v"0.4")
+Pkg.pin("KNITRO",v"0.4")  # 无法使用 pin；解决方法参照：https://github.com/jump-dev/KNITRO.jl/issues/184；https://www.artelys.com/docs/knitro//3_referenceManual/knitroJuliareference.html；结果需要许可证下载安装一个软件，https://www.artelys.com/fr/espace-client/telecharger-knitro/；赋予环境变量；
 Pkg.clone("https://github.com/JuliaMPC/NLOptControl.jl")
 ```
 
