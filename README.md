@@ -23,19 +23,19 @@ If you are using **Linux** make sure that you have **gfortran** to run **Ipopt**
 ```bash
 sudo apt-get update
 sudo apt-get install gfortran
-sudo apt-get install liblapack-dev
+sudo apt-get install liblapack-dev  # 线代的包
 sudo apt-get install libblas-dev
 ```
 
-Also, make sure that you are using at least julia 1.0.0
+Also, make sure that you are using at least julia 1.0.0  # 安装了1.8.0，在download路径下，下载链接：https://julialang.org/downloads/ 使用教程：http://www.juliaopt.org/packages/
 
 Then open up julia and install NLOptControl
 
 ```julia
-import Pkg # refer_to https://github.com/jump-dev/Ipopt.jl added in 20220420
+import Pkg # using Pkg # refer_to https://github.com/jump-dev/Ipopt.jl added in 20220420
 Pkg.add("https://github.com/JuliaMPC/NLOptControl.jl")
-Pkg.pin("KNITRO",v"0.4")  # 无法使用 pin；解决方法参照：https://github.com/jump-dev/KNITRO.jl/issues/184；https://www.artelys.com/docs/knitro//3_referenceManual/knitroJuliareference.html；结果需要许可证下载安装一个软件，https://www.artelys.com/fr/espace-client/telecharger-knitro/；赋予环境变量；
-Pkg.clone("https://github.com/JuliaMPC/NLOptControl.jl")
+Pkg.pin("KNITRO",v"0.4")  # 无法使用 pin；解决方法参照：https://github.com/jump-dev/KNITRO.jl/issues/184；https://www.artelys.com/docs/knitro//3_referenceManual/knitroJuliareference.html；结果需要许可证下载安装一个软件，https://www.artelys.com/fr/espace-client/telecharger-knitro/；赋予环境变量； remove KNITRO 删除安装不完整的包；继续尝试：https://discourse.julialang.org/t/error-methoderror-no-method-matching-pin-string-versionnumber/19672，结果： Pkg.add(PackageSpec(name="KNITRO",version="0.4"))无法安装，Pkg.add(PackageSpec(name="KNITRO"))安装了个0.12.0版本的(使用前using Pkg);
+Pkg.clone("https://github.com/JuliaMPC/NLOptControl.jl") # https://discourse.julialang.org/t/pkg-clone-command-not-being-recognized/63391/2; clone已无法使用，使用add，url
 ```
 
 ## Citation
