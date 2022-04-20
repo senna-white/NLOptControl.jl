@@ -32,6 +32,7 @@ Also, make sure that you are using at least julia 1.0.0
 Then open up julia and install NLOptControl
 
 ```julia
+import Pkg # refer_to https://github.com/jump-dev/Ipopt.jl added in 20220420
 Pkg.add("https://github.com/JuliaMPC/NLOptControl.jl")
 Pkg.pin("KNITRO",v"0.4")
 Pkg.clone("https://github.com/JuliaMPC/NLOptControl.jl")
